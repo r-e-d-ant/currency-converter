@@ -3,34 +3,46 @@
 from flask import Flask, render_template, request, redirect, url_for
 import json
 from urllib.request import urlopen
+import sys
 
 app = Flask(__name__)
 
 # ** ---------------------------------------------------- ** #
 
-# First of All subscribe here :
+# First of All subscribe here, To get an API key :
 # https://free.currencyconverterapi.com/free-api-key
 
-# To get an API key then assign it to API_KEY variable below
+# Then assign it to the API_KEY variable below
 # e.g: API_KEY = "8fhry......fhu34fsf"
 
 # ** ---------------------------------------------------- ** #
 
-# ***************************** #
-                                #
-                                #
-API_KEY = "Your-API-key-Here"   #
-                                #
-                                #
-# ***************************** #
+# ******************************* ####### <<<<----<-----| ############## >>>> Please <<<<<
+                                  #
+                                  #
+API_KEY = "Add-Your-API-key-Here" ####### <<<<----<-----| ############# >>>> Don't  <<<<<
+                                  #
+                                  #
+# ******************************* ####### <<<<----<-----| ############# >>>> Forget <<<<<<
+
+if API_KEY == "":
+    print("\nSorry, This can't work without the API key,\nGo get one here : https://free.currencyconverterapi.com/free-api-key\n")
+    sys.exit(0)
 
 
 # assign url
 countries_url = "https://free.currconv.com/api/v7/countries?apiKey="+API_KEY
 
-# open countries url and read it content
-with urlopen(countries_url) as response:
-    source = response.read()
+try:
+    # open countries url and read it content
+    with urlopen(countries_url) as response:
+        source = response.read()
+except:
+    print("\nSomething went wrong, Maybe the API key is invalid !")
+
+finally:
+    print("Go get one here : https://free.currencyconverterapi.com/free-api-key\n")
+    sys.exit(0)
 
 # load data as string form source variable
 countries_data = json.loads(source)
