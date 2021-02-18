@@ -1,0 +1,50 @@
+
+
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1 style="text-align: center;font-family: Noteworthy; font-size: 30px;" class="mt-3 mb-5 text-success">Currency Converter</h1>
+
+<div class="container">
+    <!-- User inputs -->
+    <form class="row" action="" method="POST">
+        <div class="col form-group">
+        <input class="form-control" type="number" name="amount" placeholder="1" autofocus/>
+        </div>
+
+        <div class="col form-group">
+        <select class="form-select" name="currencyID_from" id="currency-id">
+            {% for k, v in infos %}
+            <option value={{ k }}>{{ k }} - {{ v }}</option>
+            {% endfor %}
+        </select>
+        </div>
+        
+
+        <div class="col form-group">
+        <span class="form-control" style="text-align: center;">To</span>
+        </div>
+
+
+        <div class="col form-group">
+        <select class="form-select" name="currencyID_to" id="currency-id">
+            {% for k, v in infos %}
+            <option value={{ k }}>{{ k }} - {{ v }}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <div class="col form-group">
+        <input class="btn btn-outline-success" type="submit" value="calculate"/>
+        </div>
+    </form>
+
+    <!-- Result -->
+    <div class="card mt-5">
+        <div class="row">
+            <span class="col" style="font-size: 20px; text-align: center;">Exchange rate<br class="pt-5"> {{ rate }}</span>
+            <span class="col" style="font-size: 20px; text-align: center;">Result<br class="pt-5"> {{ result }}</span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
