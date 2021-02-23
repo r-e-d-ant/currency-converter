@@ -9,5 +9,5 @@ And it's simple go <a href="https://free.currencyconverterapi.com/free-api-key">
 • Screen Shot
 
 <br>
-<img src="https://github.com/r-e-d-ant/currency-converter/blob/main/Screen_Shot.png"/>
+<img src="https://github.com/r-e-d-ant/currency-converter/blob/main/Screen%20Shot%202021-02-23%20at%2011.26.50%20PM.png"/>
 <br>
