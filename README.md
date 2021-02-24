@@ -7,7 +7,7 @@ To try it you must signup for your own API key,
 And it's simple go <a href="https://free.currencyconverterapi.com/free-api-key">here</a> to get one.
 
 * To run it just go in terminal, in same folder and type
-# python3 app.py
+$ python3 app.py
 
 • Screen Shot
 
