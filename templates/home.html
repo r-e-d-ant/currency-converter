@@ -20,11 +20,11 @@
         </select>
         </div>
         
-
+        <!-- "To" label -->
         <div class="col form-group">
         <span class="form-control" style="text-align: center;">To</span>
         </div>
-
+        
 
         <div class="col form-group">
         <select class="form-select" name="currencyID_to" id="currency-id">
@@ -41,8 +41,10 @@
     <!-- Result -->
     <div class="card mt-5">
         <div class="row">
-            <span class="col" style="font-size: 20px; text-align: center;">Exchange rate<br class="pt-5"> {{ rate }}</span>
-            <span class="col" style="font-size: 20px; text-align: center;">Result<br class="pt-5"> {{ result }}</span>
+            <span class="col text-mute" style="font-size: 16px; text-align: center;">Exchange rate<br class="pt-5"> {{ rate }}</span>
+            <span class="col text-mute" style="font-size: 16px; text-align: center;">Result<br class="pt-5"> {{ result }}</span>
+            <span class="col text-mute" style="font-size: 14px; text-align: center;">Last update<br class="pt-5"> {{ date.strftime("%d-%m-%Y") }} at {{ date.strftime("%-I:%M:%S %p") }} </span>
+
         </div>
     </div>
 </div>
