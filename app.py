@@ -25,8 +25,12 @@ API_KEY = "Add-Your-API-key-Here" ####### <<<<----<-----| ############# >>>> Don
                                   #
 # ******************************* ####### <<<<----<-----| ############# >>>> Forget <<<<<<
 
+RED = '\033[91m' # red font color in terminal
+GREEN = '\033[92m' # green font color in terminal
+reset = '\033[0m' # white font color in terminal
+
 if API_KEY == "":
-    print("\nSorry, This can't work without the API key,\nGo get one here : https://free.currencyconverterapi.com/free-api-key\n")
+    print(RED, "\nSorry, This can't work without the API key", GREEN ,"\nGo get one here : https://free.currencyconverterapi.com/free-api-key \n", reset)
     sys.exit(0)
 
 
@@ -38,11 +42,9 @@ try:
     with urlopen(countries_url) as response:
         source = response.read()
 except:
-    print("\nSomething went wrong, Maybe the API key is invalid !")
-
-finally:
-    print("Go get one here : https://free.currencyconverterapi.com/free-api-key\n")
+    print(RED, "\nSorry, something went wrong, Maybe the API key is invalid or there is no internet connection.\n", reset)
     sys.exit(0)
+
 
 # load data as string form source variable
 countries_data = json.loads(source)
@@ -72,24 +74,29 @@ for key, value in countries_data['results'].items():
 def home():
     result = 0
     rate = 0
+    date = datetime.utcnow()
     if request.method == 'POST':
         amount = request.form['amount']
-        # If input is not None
         if amount:
             _from = request.form['currencyID_from']
             to = request.form['currencyID_to']
-            
             convert_url = "https://free.currconv.com/api/v7/convert?q="+_from+"_"+to+"&compact=ultra&apiKey="+API_KEY
             with urlopen(convert_url) as response:
                 source = response.read()
                 
             convert_data = json.loads(source)
             rate = convert_data[_from+"_"+to]
-            result = float(amount) * float(rate)
+            formatted_rate = "{:,}".format((round(float(rate), 2)))
+
+            result = round(float(amount) * float(rate), 2)
+            formatted_result = "{:,}".format(result)
             
-            return render_template('home.html', infos=sorted(infos.items()), rate=rate, result=result, title="Home")
+            print("Amount:", str(amount), "From:", str(_from), "To:", str(to))
+            print(result)
+            
+            return render_template('home.html', infos=sorted(infos.items()), rate=formatted_rate, result=formatted_result, date=date, title="Home")
         
-    return render_template('home.html', infos=sorted(infos.items()), rate=rate, result=result, title="Home")
+    return render_template('home.html', infos=sorted(infos.items()), rate=rate, result=result, date=date, title="Home")
 
 
 
