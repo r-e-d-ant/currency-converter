@@ -6,7 +6,7 @@ This is a simple currency converter built with Flask and a free currency convert
 To try it you must signup for your own API key, 
 And it's simple go <a href="https://free.currencyconverterapi.com/free-api-key">here</a> to get one.
 
-* To run it: Go in terminal, in same folder and type<br>
+* To run it locally: Go in terminal, in same folder and type<br>
 
 ```
  ~$ pip3 install -r requirements.txt<br>
