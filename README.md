@@ -2,9 +2,9 @@
  currency converter using a currency converter API
 
 
-This is a simple currency converter built with Flask and a free currency converter API from : https://free.currencyconverterapi.com
+This is a simple currency converter built with Flask (Python web framework) and a free currency converter API from : https://free.currencyconverterapi.com
 To try it you must signup for your own API key, 
-And it's simple go <a href="https://free.currencyconverterapi.com/free-api-key">here</a> to get one.
+And it's simple go at <a href="https://free.currencyconverterapi.com/free-api-key">here</a> to get one.
 
 * To run it locally: Go in terminal, in same folder and type:<br>
 
