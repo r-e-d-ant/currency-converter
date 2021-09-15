@@ -12,6 +12,7 @@ And it's simple go at <a href="https://free.currencyconverterapi.com/free-api-ke
  ~$ pip3 install -r requirements.txt<br>
  ~$ python3 app.py
 ```
+Then open the browser to put the link you will get from Terminal
 
 • ScreenShots
 
