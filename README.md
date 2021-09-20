@@ -14,7 +14,7 @@ And it's simple go at <a href="https://free.currencyconverterapi.com/free-api-ke
 ```
 Then open the browser to put the link you will get from Terminal
 
-• ScreenShots
+• All ScreenShots
 
 <br>
 <img src="https://github.com/r-e-d-ant/currency-converter/blob/main/Screen%20Shot%202021-02-23%20at%2011.26.50%20PM.png"/>
